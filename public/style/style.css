@@ -1,0 +1,12 @@
+@import url("./fonts/HelveticaNeueLTStd-Lt.otf");
+@import url("./fonts/HelveticaNeueLTStd-Th.otf");
+@font-face {
+  font-family: GraublauWeb;
+  src: url("./fonts/HelveticaNeueLTStd-Lt.otf") format("opentype");
+}
+
+@font-face {
+  font-family: GraublauWeb;
+  font-weight: bold;
+  src: url("./../fonts/HelveticaNeueLTStd-Th.otf") format("opentype");
+}
