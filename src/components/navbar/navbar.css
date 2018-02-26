@@ -37,18 +37,6 @@
   }
 }
 
-@keyframes MainNavMove {
-  0% {
-    top: -50px;
-  }
-  75% {
-    top: -50px;
-  }
-  100% {
-    top: 0;
-  }
-}
-
 @keyframes PhotoNavbarMove {
   0% {
     left: 50%;
@@ -76,4 +64,9 @@
   100% {
     left: 2rem;
   }
+}
+
+.link {
+  position: relative;
+  top: 300px;
 }

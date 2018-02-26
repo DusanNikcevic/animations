@@ -8,7 +8,6 @@ class MainPhoto extends Component {
     return (
       <div>
         <Link to="/">Home</Link>
-        <Link to="/video">Video</Link>
       </div>
     );
   }

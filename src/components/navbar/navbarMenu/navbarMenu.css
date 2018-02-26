@@ -1,0 +1,22 @@
+.navMenuLink,
+.navMenuLinkVideo {
+  color: #fff;
+}
+
+.navMenuLink:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.activeClassPhoto {
+  color: #ff9803;
+  transition: all 0.3s;
+}
+
+.activeClassPhoto:hover {
+  color: #e08400;
+}
+
+.linkHoverVideo:hover {
+  color: #ff3f33;
+}

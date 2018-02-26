@@ -12,11 +12,6 @@
   animation: bodyColor 1.5s;
 }
 
-a {
-  position: relative;
-  top: 300px;
-}
-
 @-webkit-keyframes bodyColor {
   0% {
     background-color: #161e21;

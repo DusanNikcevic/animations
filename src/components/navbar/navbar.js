@@ -3,12 +3,11 @@ import "./navbar.css";
 import { Switch, Route } from "react-router-dom";
 
 import NavbarHome from "./navbarHome/navbarHome";
-import NavbarPhoto from "./navbarPhoto/navbarPhoto";
-import NavbarVideo from "./navbarVideo/navbarVideo";
+import NavbarContent from "./navbarContent/navbarContent";
 
 class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       initialAnimation: true
     };
@@ -35,8 +34,7 @@ class Navbar extends Component {
                 );
               }}
             />
-            <Route path="/photo" component={NavbarPhoto} />
-            <Route path="/video" component={NavbarVideo} />
+            <Route path="/photo" component={NavbarContent} />
           </div>
         </nav>
       </Switch>

@@ -3,14 +3,12 @@ import "./mainHome.css";
 import { Link } from "react-router-dom";
 
 class MainHome extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     let klasa;
   }
 
   componentDidMount() {
-    console.log(this.props.animation);
-    console.log(this.props.history.action);
     return (this.klasa =
       this.props.animation && this.props.history.action === "POP"
         ? "mainContainer initial-animation"
@@ -22,6 +20,7 @@ class MainHome extends Component {
       <div className={this.klasa}>
         <Link
           to={{ pathname: "/photo", prevPath: this.props.location.pathname }}
+          className="link"
         >
           Photo
         </Link>

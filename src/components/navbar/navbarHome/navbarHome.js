@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import "./navbarHome.css";
+import { Switch, Route } from "react-router-dom";
 
 class NavbarHome extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     let klasaNavbar;
     let klasaLogo;
+    this.state = {
+      contentVisible: false,
+      firstAnimation: false
+    };
+    let nMenuClass;
+    let nSubMenuClass;
   }
 
   componentWillMount() {
-    console.log(this.props.animation);
-    console.log(this.props.history.action);
     this.klasaNavbar =
       this.props.animation && this.props.history.action === "POP"
         ? "navbarHomeContent navbarHomeContent--initialAnimation"
@@ -22,8 +27,9 @@ class NavbarHome extends Component {
   }
 
   render() {
-    console.log(this.klasaNavbar);
-    console.log(this.klasaLogo);
+    if (!this.props.animation && !this.props.history.action === "POP") {
+      this.nMenuClass = "navbarSubMenuRetracting";
+    }
     return (
       <div>
         <div className={this.klasaNavbar} />

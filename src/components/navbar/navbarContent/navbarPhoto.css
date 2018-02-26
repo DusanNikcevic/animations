@@ -38,6 +38,31 @@
   animation: MainNavMove 1.5s;
 }
 
+@keyframes MainNavMove {
+  0% {
+    top: -50px;
+  }
+  75% {
+    top: -50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.removeNav {
+  animation: RemoveMainNav 1s;
+}
+
+@keyframes RemoveMainNav {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -50px;
+  }
+}
+
 .navbarMainNav ul {
   position: relative;
   top: 50%;
@@ -50,4 +75,9 @@
 
 .navbarMainNav li:not(:last-child) {
   padding-right: 3rem;
+}
+
+/* ff9803 */
+.remove {
+  display: none !important;
 }
