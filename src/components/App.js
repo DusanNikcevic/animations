@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 import "./App.css";
 
@@ -7,12 +7,34 @@ import Main from "./main/main";
 import Footer from "./footer/footer";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      action: null,
+      initialAnimation: true
+    };
+    this.getHistoryAction = this
+      .getHistoryAction
+      .bind(this);
+  }
+
+  getHistoryAction(action) {
+    this.setState({action});
+  }
+
+  componentDidMount() {
+    this.setState({initialAnimation: false});
+
+  }
+
   render() {
     return (
       <div>
-        <Navbar />
-        <Main />
-        <Footer />
+        <Navbar
+          historyAction={this.state.action}
+          initial={this.state.initialAnimation}/>
+        <Main getHistory={this.getHistoryAction}/>
+        <Footer/>
       </div>
     );
   }

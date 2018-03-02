@@ -18,7 +18,6 @@ class NavbarMenu extends Component {
   }
 
   render() {
-    console.log(this.props.menuClass);
     return (
       <div className={this.props.menuClass}>
         <ul>

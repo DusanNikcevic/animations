@@ -22,6 +22,36 @@
   animation: PhotoLogoMove 0.5s;
 }
 
+
+@keyframes PhotoNavbarMove {
+  0% {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+  }
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  50% {
+    left: 0;
+    width: 300px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes PhotoLogoMove {
+  0% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  100% {
+    left: 2rem;
+  }
+}
+
 .navbarMainNav {
   z-index: 1000;
   position: absolute;
@@ -35,7 +65,7 @@
   color: #fff;
   clip-path: polygon(15% 100%, 85% 100%, 100% 0, 0 0);
   font-size: 1.7rem;
-  animation: MainNavMove 1.5s;
+  animation: MainNavMove 1s;
 }
 
 @keyframes MainNavMove {
@@ -50,15 +80,22 @@
   }
 }
 
+.navbarMainNavHidden {  
+  position: absolute;
+  top: -50px;
+}
+
 .removeNav {
   animation: RemoveMainNav 1s;
 }
 
 @keyframes RemoveMainNav {
-  0% {
+  0% {    
+  clip-path: polygon(15% 100%, 85% 100%, 100% 0, 0 0);
     top: 0;
   }
-  100% {
+  100% {    
+  clip-path: polygon(15% 100%, 85% 100%, 100% 0, 0 0);
     top: -50px;
   }
 }

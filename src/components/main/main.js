@@ -1,21 +1,21 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./main.css";
-import { Switch, Route } from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 
 import MainHome from "./mainHome/mainHome";
 import MainPhoto from "./mainPhoto/mainPhoto";
 import MainVideo from "./mainVideo/mainVideo";
 
 class Main extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       initialAnimation: true
     };
   }
 
   componentDidMount() {
-    this.setState({ initialAnimation: false });
+    this.setState({initialAnimation: false});
   }
 
   render() {
@@ -26,13 +26,14 @@ class Main extends Component {
             exact
             path="/"
             render={props => {
-              return (
-                <MainHome {...props} animation={this.state.initialAnimation} />
-              );
-            }}
-          />
-          <Route path="/photo" component={MainPhoto} />
-          <Route path="/video" component={MainVideo} />
+            return (<MainHome
+              {...props}
+              animation={this.state.initialAnimation}
+              location="/"
+              getHistory={this.props.getHistory}/>);
+          }}/>
+          <Route path="/photo" component={MainPhoto}/>
+          <Route path="/video" component={MainVideo}/>
         </div>
       </Switch>
     );
