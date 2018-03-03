@@ -13,18 +13,10 @@ class App extends Component {
       action: null,
       initialAnimation: true
     };
-    this.getHistoryAction = this
-      .getHistoryAction
-      .bind(this);
-  }
-
-  getHistoryAction(action) {
-    this.setState({action});
   }
 
   componentDidMount() {
     this.setState({initialAnimation: false});
-
   }
 
   render() {

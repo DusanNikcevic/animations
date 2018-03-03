@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 class NavbarLogo extends Component {
   constructor(props) {
     super(props);
-    let klasaNavbar;
+    const klasaNavbar = 'remove';
     let klasaLogo;
     this.state = {
       firstAnimation: true,

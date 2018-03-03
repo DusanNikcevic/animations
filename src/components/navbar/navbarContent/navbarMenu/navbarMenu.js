@@ -1,28 +1,34 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./navbarMenu.css";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+
+import {connect} from 'react-redux';
 
 class NavbarMenu extends Component {
   constructor(props) {
     super(props);
-    const activeClassPhoto = "navMenuLinkAudio";
-    const activeClassVideo = "navMenuLinkVideo";
-    const activeClassAudio = "navMenuLink";
-    const activeClassWeb = "navMenuLink";
+    this.state = {
+      navClass: this.props.menuClass,
+      initialLoad: true
+    }
   }
 
-  componentWillMount() {
-    if (this.props.location === "/photo") {
-      this.activeClassPhoto = "navMenuLink activeClassPhoto";
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    if (!this.state.initialLoad) {
+      this.setState({navClass: nextProps.menuClass});
+    } else if (this.state.initialLoad && nextProps.location !== '/') {
+      this.setState({navClass: 'navbarMainNav'})
     }
+    this.setState({initialLoad: false})
   }
 
   render() {
     return (
-      <div className={this.props.menuClass}>
+      <div className={this.state.navClass}>
         <ul>
           <li>
-            <Link to="/photo" className={this.activeClassPhoto}>
+            <Link to="/photo" className='navMenuLink'>
               Photo
             </Link>
           </li>
@@ -47,4 +53,8 @@ class NavbarMenu extends Component {
   }
 }
 
-export default NavbarMenu;
+function mapStateToProps(state) {
+  return {actionType: state.actionType, location: state.location};
+}
+
+export default connect(mapStateToProps)(NavbarMenu);

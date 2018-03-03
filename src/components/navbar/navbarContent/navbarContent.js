@@ -1,20 +1,19 @@
 import React, {Component} from "react";
-import "./navbarPhoto.css";
+import "./navbarContent.css";
 
 import {connect} from 'react-redux';
 
 import NavbarLogo from "./navbarLogo/navbarLogo";
 import NavbarMenu from "./navbarMenu/navbarMenu";
+import NavbarSubMenu from './../navbarSubMenu/navbarSubMenu';
 
 class NavbarContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navclass: "remove"
+      navclass: "remove",
+      subMenu: 'remove'
     };
-    this.removeMainNav = this
-      .removeMainNav
-      .bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,10 +24,6 @@ class NavbarContent extends Component {
     }
   }
 
-  removeMainNav() {
-    this.setState({navclass: 'navbarMainNav removeNav'})
-  }
-
   render() {
     return (
       <div>
@@ -36,13 +31,13 @@ class NavbarContent extends Component {
           historyAction={this.props.historyAction}
           removeMainNav={this.removeMainNav}/>
         <NavbarMenu menuClass={this.state.navclass}/>
+        <NavbarSubMenu subMenuClass={this.state.subMenu}/>
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  //whatever is returned will show up as props inside of BookList
   return {actionType: state.actionType, location: state.location};
 }
 
