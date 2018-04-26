@@ -36,14 +36,16 @@
   0% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     width: 100%;
-    left: 0;
+    left: 1000px;
   }
 
   50% {
-    left: 50%;
-    transform: translateX(-50%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    width: 100%;
+  }
+
+  80% {
     width: 300px;
-    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
   }
 
   100% {
@@ -68,7 +70,7 @@
 }
 
 .navbarLogoContainer__logo--repeatingAnimation {
-  animation: PhotoLogoMoveUsed 1s;
+  animation: PhotoLogoMoveUsed 1.5s;
 }
 
 @keyframes HomeLogoMove {
