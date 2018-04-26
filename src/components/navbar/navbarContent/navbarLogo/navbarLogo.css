@@ -36,7 +36,7 @@
   0% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     width: 100%;
-    left: 1000px;
+    left: 800px;
   }
 
   50% {
@@ -93,7 +93,7 @@
 
 @keyframes PhotoLogoMoveUsed {
   0% {
-    left: 2rem;
+    left: 12rem;
   }
 
   50% {
