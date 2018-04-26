@@ -1,16 +1,68 @@
 import React, { Component } from "react";
 import "./mainVideo.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-class MainVideo extends Component {
+import { actionType, location } from "./../../../actions/index";
+
+class MainPhoto extends Component {
+  constructor(props) {
+    super(props);
+    let klasa;
+  }
+
+  componentDidMount() {
+    this.props.actionType(this.props.history.action);
+    this.props.location(this.props.history.location.pathname);
+    return (this.klasa =
+      this.props.animation && this.props.history.action === "POP"
+        ? "mainContainer initial-animation"
+        : "mainContainer");
+  }
+
   render() {
     return (
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/photo">Photo</Link>
+      <div className={this.klasa}>
+        <Link
+          to={{
+            pathname: "/",
+            prevPath: this.props.location.pathname
+          }}
+          className="link"
+          onClick={() => {
+            this.props.location("/video");
+          }}
+        >
+          Home
+        </Link>
+        <Link
+          to={{
+            pathname: "/photo",
+            prevPath: this.props.location.pathname
+          }}
+          className="link"
+          onClick={() => {
+            this.props.location("/photo");
+          }}
+        >
+          Photo
+        </Link>
       </div>
     );
   }
 }
 
-export default MainVideo;
+function mapDispatchToProps(dispatch) {
+  // whenever selectBook is called, the result should be passed to all of our
+  // reducers
+  return bindActionCreators(
+    {
+      actionType: actionType,
+      location: location
+    },
+    dispatch
+  );
+}
+
+export default connect(null, mapDispatchToProps)(MainPhoto);

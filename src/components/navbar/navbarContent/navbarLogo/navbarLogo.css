@@ -27,6 +27,7 @@
     height: 0;
   }
   100% {
+    opacity: 1;
     height: 50px;
   }
 }
@@ -36,7 +37,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     width: 100%;
     left: 0;
-    }
+  }
 
   50% {
     left: 50%;
@@ -44,7 +45,6 @@
     width: 300px;
     clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
   }
-
 
   100% {
     clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
@@ -104,4 +104,3 @@
     transform: translateX(-50%);
   }
 }
-

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 import "./App.css";
 
@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({initialAnimation: false});
+    this.setState({ initialAnimation: false });
   }
 
   render() {
@@ -24,9 +24,10 @@ class App extends Component {
       <div>
         <Navbar
           historyAction={this.state.action}
-          initial={this.state.initialAnimation}/>
-        <Main getHistory={this.getHistoryAction}/>
-        <Footer/>
+          initial={this.state.initialAnimation}
+        />
+        <Main getHistory={this.getHistoryAction} />
+        <Footer />
       </div>
     );
   }

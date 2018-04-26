@@ -1,10 +1,10 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./mainHome.css";
-import {Link} from "react-router-dom";
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-import {actionType, location} from './../../../actions/index';
+import { actionType, location } from "./../../../actions/index";
 
 class MainHome extends Component {
   constructor(props) {
@@ -13,15 +13,12 @@ class MainHome extends Component {
   }
 
   componentDidMount() {
-    this
-      .props
-      .actionType(this.props.history.action);
-    this
-      .props
-      .location(this.props.history.location.pathname);
-    return (this.klasa = this.props.animation && this.props.history.action === "POP"
-      ? "mainContainer initial-animation"
-      : "mainContainer");
+    this.props.actionType(this.props.history.action);
+    this.props.location(this.props.history.location.pathname);
+    return (this.klasa =
+      this.props.animation && this.props.history.action === "POP"
+        ? "mainContainer initial-animation"
+        : "mainContainer");
   }
 
   render() {
@@ -29,28 +26,26 @@ class MainHome extends Component {
       <div className={this.klasa}>
         <Link
           to={{
-          pathname: "/photo",
-          prevPath: this.props.location.pathname
-        }}
+            pathname: "/photo",
+            prevPath: this.props.location.pathname
+          }}
           className="link"
           onClick={() => {
-          this
-            .props
-            .location('/photo')
-        }}>
+            this.props.location("/photo");
+          }}
+        >
           Photo
         </Link>
         <Link
           to={{
-          pathname: "/video",
-          prevPath: this.props.location.pathname
-        }}
+            pathname: "/video",
+            prevPath: this.props.location.pathname
+          }}
           className="link"
           onClick={() => {
-          this
-            .props
-            .location('/video')
-        }}>
+            this.props.location("/video");
+          }}
+        >
           Video
         </Link>
       </div>
@@ -61,10 +56,13 @@ class MainHome extends Component {
 function mapDispatchToProps(dispatch) {
   // whenever selectBook is called, the result should be passed to all of our
   // reducers
-  return bindActionCreators({
-    actionType: actionType,
-    location: location
-  }, dispatch);
+  return bindActionCreators(
+    {
+      actionType: actionType,
+      location: location
+    },
+    dispatch
+  );
 }
 
 export default connect(null, mapDispatchToProps)(MainHome);

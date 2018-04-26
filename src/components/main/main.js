@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./main.css";
-import {Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import MainHome from "./mainHome/mainHome";
 import MainPhoto from "./mainPhoto/mainPhoto";
@@ -15,7 +15,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    this.setState({initialAnimation: false});
+    this.setState({ initialAnimation: false });
   }
 
   render() {
@@ -26,14 +26,42 @@ class Main extends Component {
             exact
             path="/"
             render={props => {
-            return (<MainHome
-              {...props}
-              animation={this.state.initialAnimation}
-              location="/"
-              getHistory={this.props.getHistory}/>);
-          }}/>
-          <Route path="/photo" component={MainPhoto}/>
-          <Route path="/video" component={MainVideo}/>
+              return (
+                <MainHome
+                  {...props}
+                  animation={this.state.initialAnimation}
+                  location="/"
+                  getHistory={this.props.getHistory}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/photo"
+            render={props => {
+              return (
+                <MainPhoto
+                  {...props}
+                  animation={this.state.initialAnimation}
+                  location="/photo"
+                  getHistory={this.props.getHistory}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/video"
+            render={props => {
+              return (
+                <MainVideo
+                  {...props}
+                  animation={this.state.initialAnimation}
+                  location="/video"
+                  getHistory={this.props.getHistory}
+                />
+              );
+            }}
+          />
         </div>
       </Switch>
     );

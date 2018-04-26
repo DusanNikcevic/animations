@@ -7,10 +7,17 @@
   background-color: #0d1015;
   height: 50px;
   left: 0rem;
+}
+
+.navbarPhotoContent--initial {
+  animation: PhotoNavbarMoveInitial 1s;
+}
+
+.navbarPhotoContent--used {
   animation: PhotoNavbarMove 1s;
 }
 
-.navbarPhotoContent__logo {
+.navbar .navbarPhotoContent__logo {
   display: inline-block;
   max-width: 20rem;
   margin: 0 auto;
@@ -19,9 +26,42 @@
   position: absolute;
   top: -15px;
   left: 2rem;
+}
+
+.navbarPhotoContent__logo--initial {
+  animation: PhotoLogoMoveInitial 1.5s;
+}
+
+.navbarPhotoContent__logo--used {
   animation: PhotoLogoMove 0.5s;
 }
 
+@keyframes PhotoLogoMoveInitial {
+  0% {
+    max-width: 40rem;
+    top: 50vh;
+    margin-top: -153px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  50% {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 40rem;
+    top: 50vh;
+    margin-top: -153px;
+  }
+  80% {
+    margin-top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 20rem;
+    top: -15px;
+  }
+  100% {
+    left: 2rem;
+  }
+}
 
 @keyframes PhotoNavbarMove {
   0% {
@@ -36,6 +76,26 @@
   50% {
     left: 0;
     width: 300px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes PhotoNavbarMoveInitial {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  50% {
+    left: 0;
+    width: 0;
+  }
+  60% {
+    opacity: 1;
   }
   100% {
     width: 100%;
@@ -80,7 +140,7 @@
   }
 }
 
-.navbarMainNavHidden {  
+.navbarMainNavHidden {
   position: absolute;
   top: -50px;
 }
@@ -90,12 +150,12 @@
 }
 
 @keyframes RemoveMainNav {
-  0% {    
-  clip-path: polygon(15% 100%, 85% 100%, 100% 0, 0 0);
+  0% {
+    clip-path: polygon(15% 100%, 85% 100%, 100% 0, 0 0);
     top: 0;
   }
-  100% {    
-  clip-path: polygon(15% 100%, 85% 100%, 100% 0, 0 0);
+  100% {
+    clip-path: polygon(15% 100%, 85% 100%, 100% 0, 0 0);
     top: -50px;
   }
 }
